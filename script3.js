@@ -1,6 +1,6 @@
 const axios = require('axios').default;
 
-const getPeople = async(axios) => {
+const getPeople = async() => {
   let res;
   try {
     res = await axios.get('https://swapi.dev/api/people');
@@ -14,7 +14,7 @@ const getPeople = async(axios) => {
   };
 }
 
-getPeople(axios);
+getPeople();
 
 module.exports = {
   getPeople,

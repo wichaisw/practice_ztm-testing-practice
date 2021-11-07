@@ -1,3 +1,4 @@
+// Basic Jest Testing
 const googleSearch = require('./script');
 
 const dbMock = [

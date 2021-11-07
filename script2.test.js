@@ -12,13 +12,14 @@ describe('getPeople', () => {
   //   });
   // });
 
-   // handle asycnhronous test with promise return
+  // handle asycnhronous test with promise return
   it('calls swapi to get people', () => {
     expect.assertions(2);
-    return swapi.getPeople().then(data => {
+    return swapi.getPeople(axios).then(data => {
       expect(data.count).toEqual(82);
       expect(data.results.length).toBeGreaterThan(5);
     });
   });
-})
+
+});
 
