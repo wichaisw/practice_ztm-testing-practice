@@ -10,16 +10,24 @@ const googleDatabase = [
   'catty.io'
 ];
 
-const googleSearch = (searchInput) => {
-  const matches = googleDatabase.filter(website => {
+const googleSearch = (searchInput, db) => {
+  if(searchInput === null || searchInput === undefined) return [];
+  if(typeof searchInput === 'object') throw TypeError('invalid input');
+  try {
+    searchInput = searchInput.toString();
+  } catch(err)  {
+    throw TypeError('invalid input');
+  }
+
+  searchInput.toLowerCase();
+
+  const matches = db.filter(website => {
     return website.includes(searchInput);
   });
 
   return matches.length > 3 ? matches.slice(0, 3) : matches;
 }
 
-console.log(googleSearch('cat'));
+console.log(googleSearch('cat', googleDatabase));
 
-
-
-
+module.exports = googleSearch;
